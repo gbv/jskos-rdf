@@ -1,8 +1,0 @@
-@prefix ex: <http://example.org/> .
-@prefix concept: <http://example.org/concept/> .
-    
-concept:foo 
-    ex:name "foo", "föö"@de ;
-    ex:alias "FOO" ;
-    ex:also "FOOO" ;
-    ex:broader concept:bar .

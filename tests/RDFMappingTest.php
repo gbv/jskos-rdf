@@ -2,35 +2,29 @@
 
 namespace JSKOS\RDF;
 
-use Symfony\Component\Yaml\Yaml;
 use JSKOS\Concept;
-
 
 class RDFMappingTest extends \PHPUnit\Framework\TestCase
 {
+    public static function yamlFile($file) {
+        return \Symfony\Component\Yaml\Yaml::parse(file_get_contents(__DIR__."/$file"));
+    }
+
     public function testMapping()
     {
-        $examples = dirname(__FILE__).'/examples';
-        $rules = Yaml::parse(file_get_contents("$examples/example.yaml"));
-        $mapping = new RDFMapping($rules);
+        $mapper = new RDFMapping(static::yamlFile('sampleRules.yaml'));
 
         $rdf = new \EasyRdf_Graph();
-        $rdf->parseFile("$examples/example.ttl");
+        $rdf->parseFile(__DIR__.'/sampleRDF.ttl');
 
-        $foo = 'http://example.org/concept/foo';
-        $bar = 'http://example.org/concept/bar';
-        $jskos = new Concept(['uri'=>$foo]);
-        $resource = $rdf->resource($foo);
-        $mapping->apply($resource, $jskos);
+        $jskos = new Concept(['uri'=>'http://example.org/c0']);
+        $mapper->apply($rdf->resource($jskos->uri), $jskos);
 
-        $expect = new Concept([
-            'uri' => $foo,
-            'altLabel' => ['en' => ['FOO','FOOO']],
-            'prefLabel' => ['en' => 'foo', 'de' =>'föö'],
-            'broader' => [
-                new Concept(['uri' => $bar])
-            ]
-        ]);
-        $this->assertEquals($jskos, $expect);
+        $expect = new Concept(static::yamlFile('sampleConcept.yaml'));
+        foreach ($expect->broader as &$b) {
+            $b = new Concept($b);
+        }
+
+        $this->assertEquals($expect, $jskos);
     }
 }

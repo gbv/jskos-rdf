@@ -104,7 +104,6 @@ class RDFMapping
                         }
                     }
                 } elseif ($type == 'literal') {
-                    error_log($rdf->getGraph()->resource($rdfProperty));
                     foreach ($rdf->allLiterals($rdfProperty) as $literal) {
                         $value = static::cleanString($literal);
                         if (!isset($value)) continue;

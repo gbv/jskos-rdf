@@ -12,7 +12,7 @@ This library extends the [jskos](https://packagist.org/packages/gbv/jskos) PHP
 library with RDF capabilities. It provides the following PHP classes:
 
 * **JSKOS\RDF\RDFMapping**: maps maps RDF data to JSKOS based on a set of mapping rules
-* **JSKOS\RDF\RDFMappingService.php**: extends JSKOS Service with an RDFMapping from config file
+* **JSKOS\RDF\RDFMappingService**: extends JSKOS Service with an RDFMapping from config file
 
 # Requirements
 
@@ -39,16 +39,16 @@ $mapping = new JSKOS\RDF\RDFMapping($rules);
 
 Bugs and feature request are [tracked on GitHub](https://github.com/gbv/jskos-rdf/issues).
 
+See `CONTRIBUTING.md` of repository [jskos-php](https://packagist.org/packages/gbv/jskos) for guidelines.
+
 # Author and License
 
 Jakob Voß <jakob.voss@gbv.de>
 
-JSKOS-PHP is licensed under the LGPL license - see `LICENSE.md` for details.
+JSKOS-PHP is licensed under the LGPL license (see `LICENSE` for details).
 
 # See alse
 
 JSKOS-RDF is created as part of project coli-conc: <https://coli-conc.gbv.de/>.
 
 The current specification of JSKOS is available at <http://gbv.github.io/jskos/>.
-
-The current specification of JSKOS API is available at <http://gbv.github.io/jskos-api/>.
