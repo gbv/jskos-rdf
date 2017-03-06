@@ -1,0 +1,41 @@
+{
+  "name": "gbv/jskos-rdf",
+  "description": "PHP library to process JSKOS and RDF data",
+  "keywords": [
+    "SKOS",
+    "RDF"
+  ],
+  "homepage": "http://gbv.github.io/jskos-rdf/",
+  "type": "library",
+  "license": "LGPL",
+  "author": [
+    {
+      "name": "Jakob Voß",
+      "email": "jakob.voss@gbv.de"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "gbv/jskos": ">=0.0.13",
+    "easyrdf/easyrdf": "~0.9.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": ">=6.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "": "src/"
+    }
+  },
+  "scripts": {
+    "test": [
+      "vendor/bin/phpunit tests --verbose"
+    ],
+    "debug": [
+      "vendor/bin/phpunit tests --debug"
+    ],
+    "travis-test": [
+      "vendor/bin/phpunit tests --debug --coverage-clover clover.xml"
+    ]
+  }
+}
