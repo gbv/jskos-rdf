@@ -97,10 +97,10 @@ class RDFMapping
                         if (isset($mapping['unique'])) {
                             $jskos->$property = $uri;
                         } else {
-                            if (!isset($jskos->$property)) {
+                            if (empty($jskos->$property)) {
                                 $jskos->$property = [];
                             }
-                            array_push($jskos->$property, $uri);
+                            $jskos->$property[] = $uri;
                         }
                     }
                 } elseif ($type == 'literal') {
@@ -121,7 +121,9 @@ class RDFMapping
                         if (isset($mapping['unique'])) {
                             $languageMap[$language] = $value;
                         } else {
-                            $languageMap[$language][] = $value;
+                            $list = $languageMap[$language] ?? [];
+                            $list[] = $value;
+                            $languageMap[$language] = $list;
                         }
 
                         $jskos->$property = $languageMap;
@@ -137,10 +139,10 @@ class RDFMapping
                         if (isset($mapping['unique'])) {
                             $jskos->$property = $value;
                         } else {
-                            if (!isset($jskos->$property)) {
+                            if (empty($jskos->$property)) {
                                 $jskos->$property = [$value];
                             } else {
-                                array_push($jskos->$property, $value);
+                                $jskos->$property[] = $value;
                             }
                         }
                     }

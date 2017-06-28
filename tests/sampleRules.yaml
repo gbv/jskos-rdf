@@ -20,6 +20,6 @@ altLabel:
         - x:altLabel2
 relatedDate:
     type: plain
+    unique: true
     properties:
         - x:date1
-        - x:date2

@@ -9,6 +9,5 @@ e:c0
     e:prefLabel2 "foo"@en, "bar"@de ;
     e:altLabel1 "CONCEPT"@en, "BEGRIFF"@de ;
     e:altLabel2 "KONZEPT"@de ;
-    e:date1 "2009-01-01" ;
-    e:date2 "2010-01-01" 
+    e:date1 "2009-01-01"
 .

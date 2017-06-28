@@ -8,7 +8,7 @@
   "homepage": "http://gbv.github.io/jskos-rdf/",
   "type": "library",
   "license": "LGPL",
-  "author": [
+  "authors": [
     {
       "name": "Jakob Voß",
       "email": "jakob.voss@gbv.de"
@@ -16,7 +16,7 @@
   ],
   "require": {
     "php": ">=7.0",
-    "gbv/jskos": ">=0.0.13",
+    "gbv/jskos": ">=0.1.4",
     "easyrdf/easyrdf": "~0.9.0"
   },
   "require-dev": {

@@ -12,6 +12,4 @@ broader:
   - uri: http://example.org/c1
   - uri: http://example.org/c2
   - uri: http://example.org/c3
-relatedDate:
-  - '2009-01-01'
-  - '2010-01-01'
+relatedDate: '2009-01-01'
