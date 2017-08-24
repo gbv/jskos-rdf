@@ -1,6 +1,8 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace JSKOS\RDF;
+
+use JSKOS\Resource;
 
 /**
  * RDFMapping maps RDF data to JSKOS based on a set of mapping rules.
@@ -70,12 +72,12 @@ class RDFMapping
 
     /**
      * Apply mapping via extraction of data from an RDF resource and add 
-     * resulting data to a JSKOS Object.
+     * resulting data to a JSKOS Resouce.
      *
      * @param EasyRdf_Resource rdf
      * @param JSKOS\Object jskos
      */
-    public function apply(\EasyRdf_Resource $rdf, \JSKOS\Object $jskos) 
+    public function apply(\EasyRdf_Resource $rdf, Resource $jskos) 
     {
         #error_log($rdf->getGraph()->dump('text'));
         #error_log(print_r($this->rules,1));

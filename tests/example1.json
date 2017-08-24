@@ -1,0 +1,10 @@
+{            
+    "uri": "x:1",
+    "prefLabel": {
+        "en": "foo",
+        "de": "föö"
+    },
+    "altLabel": {
+        "en": ["bar", "doz"]
+    }
+}

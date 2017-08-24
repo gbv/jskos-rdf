@@ -9,4 +9,5 @@ phpunit.xml
 composer.phar
 composer.lock
 *.rej
-clover.xml
+build/
+docs/

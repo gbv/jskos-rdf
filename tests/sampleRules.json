@@ -1,0 +1,35 @@
+{
+    "_ns": {
+        "x": "http://example.org/"
+    }, 
+    "broader": {
+        "type": "URI", 
+        "properties": [
+            "x:broader1", 
+            "x:broader2"
+        ], 
+        "jskos": "Concept"
+    }, 
+    "prefLabel": {
+        "unique": true, 
+        "type": "literal", 
+        "properties": [
+            "x:prefLabel1", 
+            "x:prefLabel2"
+        ]
+    }, 
+    "relatedDate": {
+        "unique": true, 
+        "type": "plain", 
+        "properties": [
+            "x:date1"
+        ]
+    }, 
+    "altLabel": {
+        "type": "literal", 
+        "properties": [
+            "x:altLabel1", 
+            "x:altLabel2"
+        ]
+    }
+}

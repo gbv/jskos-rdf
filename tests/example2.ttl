@@ -1,0 +1,14 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/terminology/P>
+  a skos:Concept ;
+  skos:altLabel "Friede"@de ;
+  skos:narrower [ skos:prefLabel "Weltfrieden"@de, "world peace"@en ] ;
+  skos:notation "P"^^xsd:string ;
+  skos:prefLabel "Frieden"@de, "peace"@en ;
+  skos:related [ skos:prefLabel "Krieg"@de, "war"@en ] ;
+  skos:scopeNote
+    "state of harmony characterized by lack of violent conflict and freedom from fear of violence"@en,
+    "Abwesenheit von Gewalt, Angst und anderen Störungen"@de
+.

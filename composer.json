@@ -16,26 +16,31 @@
   ],
   "require": {
     "php": ">=7.0",
-    "gbv/jskos": ">=0.1.4",
-    "easyrdf/easyrdf": "~0.9.0"
+    "gbv/jskos": "^0.3.2",
+    "gbv/jskos-http": "^0.2.0",
+    "ml/json-ld": "^1.0",
+    "easyrdf/easyrdf": "^0.9.0"
   },
   "require-dev": {
-    "phpunit/phpunit": ">=6.0.0"
+    "phpunit/phpunit": "^6.1",
+    "php-http/mock-client": "^1.0",
+    "theseer/phpdox": "^0.10.1",
+    "phploc/phploc": "^4.0"
   },
   "autoload": {
     "psr-4": {
-      "": "src/"
+      "JSKOS\\RDF\\": "src/"
     }
   },
   "scripts": {
     "test": [
-      "vendor/bin/phpunit tests --verbose"
+      "mkdir -p build/logs",
+      "vendor/bin/phpunit tests --coverage-clover build/logs/clover.xml"
     ],
-    "debug": [
-      "vendor/bin/phpunit tests --debug"
-    ],
-    "travis-test": [
-      "vendor/bin/phpunit tests --debug --coverage-clover clover.xml"
+    "doc": [
+      "mkdir -p build/logs",
+      "vendor/bin/phploc -q --log-xml=build/logs/phploc.xml --count-tests src tests",
+      "vendor/bin/phpdox"
     ]
   }
 }
