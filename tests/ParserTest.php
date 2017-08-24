@@ -3,6 +3,8 @@
 namespace JSKOS\RDF;
 
 use JSKOS\Concept;
+use JSKOS\Set;
+use JSKOS\Resource;
 use EasyRdf_Graph;
 
 /**
@@ -12,19 +14,34 @@ class ParserTest extends \PHPUnit\Framework\TestCase
 {
     public function exampleProvider()
     {
-        return [
-            ['example1'],
-            ['example2'],
-        ];
+        $files = glob(__DIR__."/examples/*.json");
+        sort($files);
+        return array_map(
+            function($file) { return [substr($file,0,-5)]; },
+            $files
+        );
     }
 
     /**
      * @dataProvider exampleProvider
      */
-    public function testMapping($name)
+    public function testMapping($file)
     {
-        $jskos = json_decode(file_get_contents(__DIR__."/$name.json"), true);
-        $jskos = new Concept($jskos);
+        $json = file_get_contents("$file.json");
+        if (substr($json, 0, 1) == '[') {
+            $jskos = new Set(array_map(
+                function ($member) {
+                    $class = Resource::guessClassFromTypes($member['type'] ?? [])
+                        ?? Concept::class;
+                    return new $class($member);
+                },
+                json_decode($json, true)
+            ));            
+        } else {
+            $class = Resource::guessClassFromTypes($json['type'] ?? [])
+                    ?? Concept::class;
+            $jskos = new $class(json_decode($json, true));
+        }
 
 		# error_log($jskos->json());
 
@@ -33,10 +50,9 @@ class ParserTest extends \PHPUnit\Framework\TestCase
         $got = explode("\n", $rdf->serialise('ntriples'));
         sort($got);
 
-        $rdffile = __DIR__."/$name.ttl";
-        if (file_exists($rdffile)) {
+        if (file_exists("$file.ttl")) {
             $expect = new EasyRdf_Graph( 
-                'http://example.org/', file_get_contents($rdffile), 'turtle'
+                'http://example.org/', file_get_contents("$file.ttl"), 'turtle'
             );
             $expect = explode("\n", $expect->serialise('ntriples'));
             sort($expect);

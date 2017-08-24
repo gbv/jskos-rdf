@@ -1,0 +1,9 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<x:1>
+  a skos:Concept ;
+  skos:prefLabel "1"@en .
+
+<x:2>
+  a skos:Concept ;
+  skos:prefLabel "2"@en .
