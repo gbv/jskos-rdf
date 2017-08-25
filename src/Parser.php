@@ -19,18 +19,6 @@ class Parser extends \EasyRdf_Parser
 {
     protected $context;
 
-    # TODO: move to jskos-php package
-    private function jsonLDSerialize($jskos, $context, int $typed=0) {
-        $data = $jskos->jsonLDSerialize($context);
-        if ($typed && !count($data['type'] ?? [])) {
-            $class = get_class($jskos);
-            if (defined("$class::TYPES")) {
-                $data['type'] = [$class::TYPES[0]];
-            }
-        }
-        return $data;
-    }
-
     /**
      * Parse JSKOS Resources to RDF.
      */
@@ -40,17 +28,10 @@ class Parser extends \EasyRdf_Parser
             $this->context = json_decode(file_get_contents(__DIR__.'/jskos-context.json'));
         }
         
-        # TODO: put into JSKOS core package?
         if ($jskos instanceof Set) {
-            $data = $jskos->map(
-                function ($m) {
-                    return json_encode($this->jsonLDSerialize($m,'', 1));
-                }
-            );
-            $json = '{"@graph":['. implode(',', $data)."]}";
-        } else { # TODO: throw on unparsable JSKOS
-            $data = $this->jsonLDSerialize($jskos, '', 1);
-            $json = json_encode($data);
+            $json = '{"@graph":'.json_encode($jskos->jsonLDSerialize('', true)).'}';
+        } else {
+            $json = json_encode($jskos->jsonLDSerialize('', true));
         }
 
         $rdf = JsonLD::toRdf($json, ['expandContext' => $this->context]);
