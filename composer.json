@@ -37,6 +37,9 @@
       "mkdir -p build/logs",
       "vendor/bin/phpunit tests --coverage-clover build/logs/clover.xml"
     ],
+    "style": [
+       "which php-cs-fixer && php-cs-fixer fix src"
+    ],
     "doc": [
       "mkdir -p build/logs",
       "vendor/bin/phploc -q --log-xml=build/logs/phploc.xml --count-tests src tests",

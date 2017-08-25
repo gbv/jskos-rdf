@@ -10,31 +10,12 @@
 # Description
 
 This library extends the [jskos](https://packagist.org/packages/gbv/jskos) PHP
-library with RDF capabilities. It provides the following PHP classes:
-
-* **JSKOS\RDF\RDFMapping**: maps maps RDF data to JSKOS based on a set of mapping rules
-* **JSKOS\RDF\RDFMappingService**: extends JSKOS Service with an RDFMapping from config file
+library with classes to convert from and to RDF.
 
 # Requirements
 
 JSKOS-RDF requires PHP 7, the [jskos](https://packagist.org/packages/gbv/jskos)
 PHP library, and [easyRDF](http://www.easyrdf.org/).
-
-# Installation
-
-Install the latest version with composer:
-
-~~~bash
-composer require gbv/jskos-rdf
-~~~
-
-This will automatically create `composer.json` for your project (unless it already exists) and add jskos as dependency. Composer also generates `vendor/autoload.php` to get autoloading of all dependencies: 
-
-~~~php
-require_once __DIR__ . '/vendor/autoload.php';
-
-$mapping = new JSKOS\RDF\RDFMapping($rules);
-~~~
 
 # Contributung
 

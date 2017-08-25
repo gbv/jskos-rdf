@@ -1,0 +1,241 @@
+{
+  "_ns": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "schema": "http://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "nkos": "http://w3id.org/nkos#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xskos": "http://rdf-vocabulary.ddialliance.org/xkos#"
+  },
+  "type": {
+    "type": "URI",
+    "properties": [
+      "rdf:type"
+    ]
+  },
+  "created": {
+    "type": "plain",
+    "properties": [
+      "dct:created"
+    ]
+  },
+  "issued": {
+    "type": "plain",
+    "properties": [
+      "dct:issued"
+    ]
+  },
+  "modified": {
+    "type": "plain",
+    "properties": [
+      "dct:modified"
+    ]
+  },
+  "creator": {
+    "type": "URI",
+    "jskos": "Concept",
+    "properties": [
+      "dct:creator"
+    ]
+  },
+  "contributor": {
+    "type": "URI",
+    "jskos": "Concept",
+    "properties": [
+      "dct:contributor"
+    ]
+  },
+  "publisher": {
+    "type": "URI",
+    "jskos": "Concept",
+    "properties": [
+      "dct:publisher"
+    ]
+  },
+  "partOf": {
+    "type": "URI",
+    "jskos": "Concept",
+    "properties": [
+      "dct:partOf"
+    ]
+  },
+  "url": {
+    "type": "URI",
+    "unique": true,
+    "properties": [
+      "foaf:page"
+    ]
+  },
+  "identifier": {
+    "type": "URI",
+    "jskos": "plain",
+    "properties": [
+      "dc:identifier"
+    ]
+  },
+  "notation": {
+    "type": "plain",
+    "properties": [
+      "skos:notation"
+    ]
+  },
+  "prefLabel": {
+    "type": "literal",
+    "unique": true,
+    "properties": [
+      "skos:prefLabel"
+    ]
+  },
+  "altLabel": {
+    "type": "literal",
+    "properties": [
+      "skos:altLabel"
+    ]
+  },
+  "hiddenLabel": {
+    "type": "literal",
+    "properties": [
+      "skos:hiddenLabel"
+    ]
+  },
+  "scopeNote": {
+    "type": "literal",
+    "properties": [
+      "skos:scopeNote"
+    ]
+  },
+  "definition": {
+    "type": "literal",
+    "properties": [
+      "skos:definition"
+    ]
+  },
+  "example": {
+    "type": "literal",
+    "properties": [
+      "skos:example"
+    ]
+  },
+  "historyNote": {
+    "type": "literal",
+    "properties": [
+      "skos:historyNote"
+    ]
+  },
+  "editorialNote": {
+    "type": "literal",
+    "properties": [
+      "skos:editorialNote"
+    ]
+  },
+  "changeNote": {
+    "type": "literal",
+    "properties": [
+      "skos:changeNote"
+    ]
+  },
+  "subject": {
+    "type": "URI",
+    "jskos": "Concept",
+    "properties": [
+      "dct:subject"
+    ]
+  },
+  "depiction": {
+    "type": "URI",
+    "properties": [
+      "foaf:depiction"
+    ]
+  },
+  "broader": {
+    "type": "URI",
+    "jskos": "Concept",
+    "properties": [
+      "skos:broader"
+    ]
+  },
+  "narrower": {
+    "type": "URI",
+    "jskos": "Concept",
+    "properties": [
+      "skos:narrower"
+    ]
+  },
+  "related": {
+    "type": "URI",
+    "jskos": "Concept",
+    "properties": [
+      "skos:related"
+    ]
+  },
+  "previous": {
+    "type": "URI",
+    "jskos": "Concept",
+    "properties": [
+      "xskos:previous"
+    ]
+  },
+  "next": {
+    "type": "URI",
+    "jskos": "Concept",
+    "properties": [
+      "xskos:next"
+    ]
+  },
+  "startDate": {
+    "type": "plain",
+    "unique": true,
+    "properties": [
+      "schema:startDate"
+    ]
+  },
+  "endDate": {
+    "type": "plain",
+    "unique": true,
+    "properties": [
+      "schema:endDate"
+    ]
+  },
+  "ancestors": {
+    "type": "URI",
+    "jskos": "Concept",
+    "properties": [
+      "skos:ancestors"
+    ]
+  },
+  "inScheme": {
+    "type": "URI",
+    "jskos": "ConceptScheme",
+    "properties": [
+      "skos:inScheme"
+    ]
+  },
+  "topConceptOf": {
+    "type": "URI",
+    "jskos": "ConceptScheme",
+    "properties": [
+      "skos:topConceptOf"
+    ]
+  },
+  "languages": {
+    "type": "plain",
+    "properties": [
+      "dct:language"
+    ]
+  },
+  "extent": {
+    "type": "plain",
+    "unique": true,
+    "properties": [
+      "nkos:sizeNote"
+    ]
+  },
+  "license": {
+    "type": "URI",
+    "jskos": "Concept",
+    "properties": [
+      "dct:license"
+    ]
+  }
+}

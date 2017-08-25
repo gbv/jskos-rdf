@@ -61,6 +61,18 @@ class ParserTest extends \PHPUnit\Framework\TestCase
             error_log($rdf->serialise('turtle'));
         }
 
-		# TODO: test round-tripping
+        # Test round-tripping
+        if ($jskos instanceof Concept) {
+            $mapper = new Mapper();
+            $uri = $jskos->uri;
+            $resource = new Concept(['uri'=>$uri]);
+            $mapper->applyAtResource($rdf->resource($uri), $resource);
+
+            # TODO: Mapper does not support hierarchical data yet
+            $jskos->narrower = null;
+            $jskos->broader = null;
+            $jskos->related = null;
+            $this->assertEquals($resource, $jskos);
+        }
     }
 } 

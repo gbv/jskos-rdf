@@ -35,7 +35,7 @@ class Parser extends \EasyRdf_Parser
         }
 
         $rdf = JsonLD::toRdf($json, ['expandContext' => $this->context]);
-        # TODO: catch (\ML\JsonLD\Exception\JsonLdException $e) 
+        # TODO: catch (\ML\JsonLD\Exception\JsonLdException $e)
 
         $graph = new EasyRdf_Graph();
         $this->parse($graph, $rdf);
@@ -46,7 +46,7 @@ class Parser extends \EasyRdf_Parser
     /**
      * Parse Quads as returned by JsonLD.
      */
-    public function parse($graph, $data, $format = 'jsonld', $baseUri = NULL) 
+    public function parse($graph, $data, $format = 'jsonld', $baseUri = null)
     {
         parent::checkParseParams($graph, $data, $format, $baseUri);
 
