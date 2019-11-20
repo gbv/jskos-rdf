@@ -7,7 +7,7 @@
   ],
   "homepage": "http://gbv.github.io/jskos-rdf/",
   "type": "library",
-  "license": "LGPL",
+  "license": "LGPL-3.0-or-later",
   "authors": [
     {
       "name": "Jakob Voß",
@@ -18,8 +18,12 @@
     "php": ">=7.0",
     "gbv/jskos": "^0.3.3",
     "gbv/jskos-http": "^0.3.1",
-    "ml/json-ld": "^1.0",
-    "easyrdf/easyrdf": "^0.9.0"
+    "ml/json-ld": "^1.1",
+    "easyrdf/easyrdf": "^0.9.0",
+    "symfony/yaml": "^4.3",
+    "guzzlehttp/psr7": "^1.6",
+    "php-http/message": "^1.8",
+    "php-http/guzzle6-adapter": "^2.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^6.1",
